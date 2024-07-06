@@ -1,4 +1,5 @@
 import { Search } from 'lucide-react';
+import Link from 'next/link';
 
 const NavButtons = () => {
   return (
@@ -7,9 +8,12 @@ const NavButtons = () => {
         <Search strokeWidth={1.5} size={22} className='text-green-sec' />
       </button>
 
-      <button className='w-28 h-11 rounded-md bg-green-sec text-white shadow-md transition-all hover:shadow'>
+      <Link
+        href='/products'
+        className='w-28 h-11 flex items-center justify-center rounded-md bg-green-sec text-white shadow-md transition-all hover:shadow-sm active:shadow-sm'
+      >
         Shop now
-      </button>
+      </Link>
     </div>
   );
 };

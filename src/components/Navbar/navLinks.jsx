@@ -9,7 +9,7 @@ const navData = [
   {
     title: 'Products',
     link: '/products',
-    icon: <ChevronDown size={11} strokeWidth={2.5} className='mt-[10px]' />,
+    icon: <ChevronDown size={11} strokeWidth={2.5} className='mt-2' />,
   },
   { title: 'Store', link: '/store', icon: '' },
   { title: 'Contact', link: '/contact', icon: '' },
@@ -27,7 +27,7 @@ const NavLinks = () => {
               pathname === data.link
                 ? 'text-green-sec font-bold'
                 : 'text-gray-prim font-medium'
-            } text-lg flex gap-2`}
+            }  flex gap-2`}
           >
             <Link href={data.link}>{data.title}</Link>
             {data.icon}
