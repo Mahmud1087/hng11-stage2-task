@@ -1,3 +1,4 @@
+import FeaturedProducts from '@/components/featuredProducts/featuredProducts';
 import { Hero } from '@/components/heroSection/main';
 import { PromotedProducts } from '@/components/promotedProducts/main';
 import { Stats } from '@/components/statSection/main';
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero />
       <PromotedProducts />
       <Stats />
+      <FeaturedProducts />
     </section>
   );
 }
