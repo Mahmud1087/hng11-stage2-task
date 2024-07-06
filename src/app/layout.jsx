@@ -1,6 +1,7 @@
 import { El_Messiri } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar/navbar';
+import Footer from '@/components/footer/footer';
 
 const el_messiri = El_Messiri({ subsets: ['latin'] });
 
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
       <body className={el_messiri.className}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

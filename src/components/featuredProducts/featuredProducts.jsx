@@ -1,7 +1,7 @@
 import Container from '../container';
 import { featuredProducts } from './data';
 import FeaturedProduct from './featuredProduct';
-import Header from './Header';
+import Header from './header';
 import scrollBar from '../../../public/scrollbar.png';
 import Image from 'next/image';
 

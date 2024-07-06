@@ -2,7 +2,7 @@ import FeaturedProducts from '@/components/featuredProducts/featuredProducts';
 import { Hero } from '@/components/heroSection/main';
 import { PromotedProducts } from '@/components/promotedProducts/main';
 import { Stats } from '@/components/statSection/main';
-import Image from 'next/image';
+import SubFooter from '@/components/subFooter';
 
 export default function Home() {
   return (
@@ -11,6 +11,7 @@ export default function Home() {
       <PromotedProducts />
       <Stats />
       <FeaturedProducts />
+      <SubFooter />
     </section>
   );
 }
