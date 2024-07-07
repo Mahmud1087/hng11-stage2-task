@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const FeaturedProducts = () => {
   return (
-    <Container className='py-10'>
+    <Container className='py-20'>
       <Header />
       <div className='grid grid-cols-5 gap-8 mt-20'>
         {featuredProducts.map((product) => {
