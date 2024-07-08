@@ -6,8 +6,6 @@ import prevButton from '../../../public/prev-btn.png';
 import nextButton from '../../../public/next-btn.png';
 import FilterBox from './filterBox';
 
-const productsData = products.filter((prod) => prod.trending === false);
-
 const Products = () => {
   return (
     <Container className='flex gap-12 mt-16'>
@@ -21,7 +19,7 @@ const Products = () => {
       <section className='w-4/5'>
         <p>Showing 1-15 of 300 Results</p>
         <article className='mt-8 grid grid-cols-3 gap-12'>
-          {productsData.map((product) => {
+          {products.map((product) => {
             return <SingleProductCard key={product.id} {...product} />;
           })}
         </article>

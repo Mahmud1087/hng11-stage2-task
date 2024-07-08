@@ -5,14 +5,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const navData = [
-  { title: 'Home', link: '/', icon: '' },
+  { title: 'Home', link: '/' },
   {
     title: 'Products',
     link: '/products',
-    icon: <ChevronDown size={11} strokeWidth={2.5} className='mt-2' />,
   },
-  { title: 'Store', link: '/store', icon: '' },
-  { title: 'Contact', link: '/contact', icon: '' },
+  { title: 'Cart', link: '/cart' },
 ];
 
 const NavLinks = () => {

@@ -4,9 +4,20 @@ import Link from 'next/link';
 const NavButtons = () => {
   return (
     <div className='flex items-center gap-3'>
-      <button className='flex items-center justify-center h-11 w-11 border-2 border-green-sec rounded-md shadow-md transition-all hover:shadow'>
-        <Search strokeWidth={1.5} size={22} className='text-green-sec' />
-      </button>
+      <label
+        htmlFor='search'
+        className='flex items-center px-4 py-2 border-2 border-green-sec rounded-md shadow-md'
+      >
+        <input
+          type='text'
+          name='search'
+          className='border-none bg-transparent focus:outline-none'
+        />
+
+        <button className='flex items-center justify-center'>
+          <Search strokeWidth={1.5} size={22} className='text-green-sec' />
+        </button>
+      </label>
 
       <Link
         href='/products'
