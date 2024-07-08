@@ -2,14 +2,17 @@ import prodImg from '../../../public/prodImg.png';
 import delIcon from '../../../public/delIcon.png';
 import Image from 'next/image';
 
-const CartItem = ({ price, title }) => {
+const CartItem = ({ price }) => {
   return (
     <div className='w-full flex border-b border-b-[#EAEEEF] last:border-b-0 py-4'>
       <section className='w-2/5 flex gap-4 items-center'>
         <div className='w-28'>
           <Image src={prodImg} alt='single product image' />
         </div>
-        <p className='text-lg font-semibold text-gray-prim'>{title}</p>
+        <p className='text-lg font-semibold text-gray-prim'>
+          Vegetable Interior <br />
+          Decor
+        </p>
       </section>
       <p className='w-1/5 mt-8 font-semibold'>{price}</p>
       <section className='w-1/5 mt-6'>

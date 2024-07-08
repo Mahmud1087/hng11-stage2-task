@@ -1,9 +1,8 @@
 import Link from 'next/link';
 import { Container } from '../main';
 import TrendingProduct from './trendingProduct';
-import { products } from '../productsData';
+import { trendingProducts } from './data';
 
-const trendingProducts = products.filter((prod) => prod.trending == true);
 const TrendingProducts = () => {
   return (
     <section className='bg-[#FEFAFB] py-20'>

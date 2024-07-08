@@ -21,7 +21,7 @@ const NavButtons = () => {
 
       <Link
         href='/products'
-        className='w-28 h-11 flex items-center justify-center rounded-md bg-green-sec text-white shadow-md transition-all hover:shadow-sm active:shadow-sm'
+        className='w-28 h-11 flex items-center justify-center rounded-md bg-green-sec text-white border-2 border-green-sec transition-all hover:bg-transparent hover:text-green-sec hover:text-semibold'
       >
         Shop now
       </Link>
