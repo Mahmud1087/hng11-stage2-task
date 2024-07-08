@@ -1,16 +1,15 @@
+import BackButton from '@/components/backButton';
 import CartItem from '@/components/cart/cartItem';
-import { cartData } from '@/components/cart/data';
+import { cartData, similarProductsData } from '@/components/cart/data';
 import Container from '@/components/container';
+import TrendingProduct from '@/components/trendingProducts/trendingProduct';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
 const CartPage = () => {
   return (
-    <Container className='my-12'>
-      <button className='text-[#BF5428] flex gap-2 items-center font-semibold mb-10'>
-        <ArrowLeft size={16} />
-        <p>Back to product</p>
-      </button>
+    <Container className='my-12 '>
+      <BackButton />
 
       <section className='flex gap-16'>
         <aside className='w-[70%]'>
@@ -56,6 +55,19 @@ const CartPage = () => {
           </section>
         </aside>
       </section>
+
+      <div>
+        <h1 className='text-[1.7rem] text-gray-prim font-bold mt-5'>
+          Discover Similar Products
+        </h1>
+        <section className='overflow-x-scroll no-scrollbar h-fit'>
+          <div className='flex gap-5 w-[160vw] py-2'>
+            {similarProductsData.map((prod, i) => {
+              return <TrendingProduct key={i} {...prod} />;
+            })}
+          </div>
+        </section>
+      </div>
     </Container>
   );
 };

@@ -1,4 +1,5 @@
-import { Search } from 'lucide-react';
+import searchIcon from '../../../public/search.png';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const NavButtons = () => {
@@ -15,7 +16,7 @@ const NavButtons = () => {
         />
 
         <button className='flex items-center justify-center'>
-          <Search strokeWidth={1.5} size={22} className='text-green-sec' />
+          <Image src={searchIcon} alt='search icon' />
         </button>
       </label>
 

@@ -12,12 +12,9 @@ const SingleProductCard = ({ img, name, price, prevPrice }) => {
         <p className='text-2xl font-bold mb-2'>${price}</p>
         <p className='text-sm line-through font-bold'>${prevPrice}</p>
       </div>
-      <Link
-        href={`products/${name}`}
-        className='px-10 py-1 border-2 border-green-sec rounded-md text-green-sec font-semibold hover:bg-green-sec hover:text-white transition-all'
-      >
+      <button className='px-10 py-1 border-2 border-green-sec rounded-md text-green-sec font-semibold hover:bg-green-sec hover:text-white transition-all'>
         Add to cart
-      </Link>
+      </button>
     </article>
   );
 };
