@@ -31,7 +31,7 @@ const Products = () => {
       )}
 
       <Container
-        className={`flex gap-12 mt-2 sm:mt-16 ${
+        className={`flex gap-12 mt-2 sm:mt-16 mb-12 ${
           isFilterOpen && 'fixed sm:relative'
         }`}
       >

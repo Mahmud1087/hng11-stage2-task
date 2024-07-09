@@ -66,7 +66,7 @@ const CartPage = () => {
             </div>
             <Link
               href='checkout'
-              className='w-fit mx-auto mt-2 px-12 py-2 text-sm text-white bg-green-sec rounded-md transition-all hover:font-bold hover:bg-transparent hover:text-green-sec border-2 border-green-sec'
+              className='w-fit mx-auto mt-2 px-12 py-2 text-sm text-white bg-green-sec rounded-md transition-all hover:font-bold hover:bg-[#234149] border-2 border-green-sec'
             >
               Proceed to checkout
             </Link>

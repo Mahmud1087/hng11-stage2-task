@@ -20,10 +20,6 @@ const SingleProductCard = ({ id, img, name, price, prevPrice }) => {
     toast.success('Item Added', {
       position: 'top-center',
       autoClose: 2000,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      theme: 'light',
     });
   };
 
@@ -34,7 +30,7 @@ const SingleProductCard = ({ id, img, name, price, prevPrice }) => {
       </aside>
       <h2 className='text-xl font-semibold mt-3 mb-1'>{name}</h2>
       <div className='flex gap-1'>
-        <p className='text-2xl font-bold mb-2'>${price}</p>
+        <p className='text-2xl font-bold mb-2 lg:text-3xl'>${price}</p>
         <p className='text-sm line-through font-bold'>${prevPrice}</p>
       </div>
       <button

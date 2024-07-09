@@ -130,21 +130,21 @@ const CheckoutPage = () => {
               <h2 className='font-bold text-lg'>Shipping</h2>
               <p>Free</p>
             </div>
-            <p className='text-[#BF5428] text-sm cursor-pointer my-3 font-semibold'>
+            <p className='text-[#BF5428] text-base cursor-pointer my-3 font-semibold'>
               Add Coupon Code
             </p>
             <div className='flex justify-between'>
               <h2 className='font-bold text-lg'>Total</h2>
               <p>${cartTotal}</p>
             </div>
-            <button className='w-fit mx-auto mt-2 px-12 py-2 text-sm text-white bg-green-sec rounded-md transition-all font-semibold hover:bg-transparent hover:text-green-sec border-2 border-green-sec'>
+            <button className='w-fit mx-auto mt-2 px-12 py-2 text-sm text-white bg-green-sec rounded-md transition-all font-semibold hover:bg-[#234149] border-2 border-green-sec'>
               Continue Payment
             </button>
           </section>
         </aside>
       </section>
 
-      <h1 className='font-bold text-[1.6rem] mb-8 mt-10'>Payment Method</h1>
+      <h1 className='font-bold text-[1.6rem] mb-8 mt-10 '>Payment Method</h1>
 
       <section className='flex flex-col gap-3 mb-6 w-fit'>
         <label htmlFor='payWithCreditCard' className='flex items-center gap-2 '>
@@ -217,7 +217,7 @@ const CheckoutPage = () => {
             type='checkbox'
             name='useShippingAddress'
             id='useShippingAddress'
-            className='accent-green-sec w-4 h-4 cursor-pointer'
+            className='accent-green-sec w-6 h-6 cursor-pointer'
           />
           <p className='font-semibold'>
             Use shipping address as Billing address
@@ -228,7 +228,7 @@ const CheckoutPage = () => {
             type='checkbox'
             name='acceptTerms'
             id='acceptTerms'
-            className='accent-green-sec w-4 h-4 cursor-pointer'
+            className='accent-green-sec w-6 h-6 cursor-pointer'
           />
           <p className='font-semibold'>Accept Terms and Conditoion </p>
         </label>

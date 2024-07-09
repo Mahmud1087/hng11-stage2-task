@@ -1,20 +1,43 @@
+'use client';
 import Image from 'next/image';
-import Link from 'next/link';
+import { similarProductsData } from './cart/data';
+import { useAppContext } from '@/app/context';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const TrendingProduct = ({ img, name, price }) => {
+const TrendingProduct = ({ id, img, name, price }) => {
+  const { setCartData } = useAppContext();
+
+  const addToCart = () => {
+    const product = similarProductsData.find((prod) => prod.id === id);
+    setCartData((prevState) => {
+      return [...prevState, product];
+    });
+  };
+
+  const addToCartMessage = () => {
+    toast.success('Item Added', {
+      position: 'top-center',
+      autoClose: 2000,
+    });
+  };
+
   return (
     <div className='w-screen text-gray-prim'>
       <aside className='w-[60vw] sm:w-[35vw] lg:w-full'>
         <Image src={img} alt={name} />
       </aside>
       <h2 className='text-xl font-semibold mt-4 mb-3'>{name}</h2>
-      <p className='text-2xl font-bold mb-3'>{price}</p>
-      <Link
-        href='/'
-        className='px-16 py-1 border-2 border-green-sec rounded-md text-green-sec font-semibold hover:bg-green-sec hover:text-white transition-all'
+      <p className='text-2xl font-bold mb-3'>${price}</p>
+      <button
+        onClick={() => {
+          addToCart();
+          addToCartMessage();
+        }}
+        className='px-16 py-1 border-2 border-green-sec rounded-md text-green-sec font-semibold hover:bg-green-sec hover:text-white transition-all sm:text-lg'
       >
-        Shop now
-      </Link>
+        Add to Cart
+      </button>
     </div>
   );
 };

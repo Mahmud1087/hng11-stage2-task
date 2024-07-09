@@ -1,8 +1,10 @@
 'use client';
 
-import { ChevronUp, Circle, Disc2 } from 'lucide-react';
+import { Circle, Disc2 } from 'lucide-react';
 import FilterOption from './filterOption';
 import { useState } from 'react';
+import arrowDown from '../../../public/arrow-down.png';
+import Image from 'next/image';
 
 const category = [
   {
@@ -95,13 +97,13 @@ const FilterBox = () => {
           onClick={() => setIsCategoryOpen(!isCategoryOpen)}
         >
           <h1 className='font-bold text-gray-prim text-lg'>Category</h1>
-          <button
+          <div
             className={`${
-              !isCategoryOpen && 'rotate-180'
+              isCategoryOpen && 'rotate-180'
             } group-hover:rotate-180 transition-all`}
           >
-            <ChevronUp strokeWidth={1} />
-          </button>
+            <Image src={arrowDown} alt='dropdown button' />
+          </div>
         </div>
         {isCategoryOpen && (
           <section className='flex flex-col gap-3 justify-center'>
@@ -125,13 +127,13 @@ const FilterBox = () => {
           onClick={() => setIsMaterialOpen(!isMaterialOpen)}
         >
           <h1 className='font-bold text-gray-prim text-lg'>Material</h1>
-          <button
+          <div
             className={`${
-              !isMaterialOpen && 'rotate-180'
+              isMaterialOpen && 'rotate-180'
             } group-hover:rotate-180 transition-all`}
           >
-            <ChevronUp strokeWidth={1} />
-          </button>
+            <Image src={arrowDown} alt='dropdown button' />
+          </div>
         </div>
         {isMaterialOpen && (
           <article className='flex gap-2 flex-wrap'>
@@ -148,13 +150,13 @@ const FilterBox = () => {
           onClick={() => setIsColorOpen(!isColorOpen)}
         >
           <h1 className='font-bold text-gray-prim text-lg'>Color</h1>
-          <button
+          <div
             className={`${
-              !isColorOpen && 'rotate-180'
+              isColorOpen && 'rotate-180'
             } group-hover:rotate-180 transition-all`}
           >
-            <ChevronUp strokeWidth={1} />
-          </button>
+            <Image src={arrowDown} alt='dropdown button' />
+          </div>
         </div>
         {isColorOpen && (
           <article className='flex flex-col gap-3 justify-center'>
@@ -178,13 +180,13 @@ const FilterBox = () => {
           onClick={() => setIsAvailability(!isAvailability)}
         >
           <h1 className='font-bold text-gray-prim text-lg'>Availability</h1>
-          <button
+          <div
             className={`${
-              !isAvailability && 'rotate-180'
+              isAvailability && 'rotate-180'
             } group-hover:rotate-180 transition-all`}
           >
-            <ChevronUp strokeWidth={1} />
-          </button>
+            <Image src={arrowDown} alt='dropdown button' />
+          </div>
         </div>
         {isAvailability && (
           <article className='flex flex-col gap-3 justify-center'>

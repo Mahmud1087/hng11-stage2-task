@@ -1,7 +1,6 @@
 'use client';
 
 import { useAppContext } from '@/app/context';
-import delIcon from '../../../public/delIcon.png';
 import Image from 'next/image';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
