@@ -35,7 +35,7 @@ const Products = () => {
           isFilterOpen && 'fixed sm:relative'
         }`}
       >
-        <div className='hidden sm:block sm:w-2/6 lg:w-1/2'>
+        <div className='hidden sm:block sm:w-2/6 lg:w-1/5'>
           <h1 className='text-[1.6rem] text-gray-prim/90 font-bold'>
             Filter Option
           </h1>
