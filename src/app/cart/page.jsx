@@ -1,12 +1,16 @@
+'use client';
+
 import BackButton from '@/components/backButton';
 import CartItem from '@/components/cart/cartItem';
-import { cartData, similarProductsData } from '@/components/cart/data';
+import { similarProductsData } from '@/components/cart/data';
 import Container from '@/components/container';
-import TrendingProduct from '@/components/trendingProducts/trendingProduct';
-import { ArrowLeft } from 'lucide-react';
+import TrendingProduct from '@/components/trendingProduct';
+
 import Link from 'next/link';
+import { useAppContext } from '../context';
 
 const CartPage = () => {
+  const { cartData, cartTotal } = useAppContext();
   return (
     <Container className='my-12 '>
       <BackButton />
@@ -14,16 +18,30 @@ const CartPage = () => {
       <section className='flex gap-16'>
         <aside className='w-[70%]'>
           <div className='w-full h-16 rounded-md bg-[#EAEEEF] flex items-center text-gray-prim  font-bold'>
-            <p className='w-2/5 pl-8'>Item</p>
-            <p className='w-1/5'>Price</p>
+            <p className='w-[55%] pl-8'>Item</p>
+            <p className='w-[15%]'>Price</p>
             <p className='w-1/5'> Quantity</p>
             <p className='w-1/5'>Subtotal</p>
           </div>
-          <div className='mt-5 flex flex-col text-gray-prim px-1'>
-            {cartData.map((item, i) => {
-              return <CartItem key={i} {...item} />;
-            })}
-          </div>
+          {cartData.length !== 0 ? (
+            <div className='mt-5 flex flex-col text-gray-prim px-1'>
+              {cartData.map((item, i) => {
+                return <CartItem key={i} {...item} />;
+              })}
+            </div>
+          ) : (
+            <div className='flex flex-col items-center'>
+              <h1 className='text-center text-3xl font-bold mt-12'>
+                No Item Added
+              </h1>
+              <Link
+                href='/'
+                className='w-32 h-11 flex items-center justify-center rounded-md bg-green-sec text-white border-2 border-green-sec mt-4 transition-all hover:bg-transparent hover:text-green-sec hover:text-semibold'
+              >
+                Shop now
+              </Link>
+            </div>
+          )}
         </aside>
 
         <aside className='w-[30%]'>
@@ -33,7 +51,7 @@ const CartPage = () => {
           <section className='mt-5 flex flex-col gap-3 text-gray-prim px-1'>
             <div className='flex justify-between'>
               <h2 className='font-bold'>Subtotal</h2>
-              <p>$410.00</p>
+              <p>${cartTotal}</p>
             </div>
             <div className='flex justify-between'>
               <h2 className='font-bold'>Shipping</h2>
@@ -44,7 +62,7 @@ const CartPage = () => {
             </p>
             <div className='flex justify-between'>
               <h2 className='font-bold'>Total</h2>
-              <p>$410.00</p>
+              <p>${cartTotal}</p>
             </div>
             <Link
               href='checkout'
@@ -57,7 +75,7 @@ const CartPage = () => {
       </section>
 
       <div>
-        <h1 className='text-[1.7rem] text-gray-prim font-bold mt-5'>
+        <h1 className='text-[1.7rem] text-gray-prim font-bold mt-32'>
           Discover Similar Products
         </h1>
         <section className='overflow-x-scroll no-scrollbar h-fit'>

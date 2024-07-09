@@ -1,19 +1,10 @@
-import FeaturedProducts from '@/components/featuredProducts/featuredProducts';
-import { Hero } from '@/components/heroSection/main';
-import { PromotedProducts } from '@/components/promotedProducts/main';
-import { Stats } from '@/components/statSection/main';
-import SubFooter from '@/components/subFooter';
-import TrendingProducts from '@/components/trendingProducts/trendingProducts';
+import Products from '@/components/products/products';
 
-export default function Home() {
+const ProductsPage = () => {
   return (
-    <section className=''>
-      <Hero />
-      <PromotedProducts />
-      <Stats />
-      <FeaturedProducts />
-      <TrendingProducts />
-      <SubFooter />
-    </section>
+    <div>
+      <Products />
+    </div>
   );
-}
+};
+export default ProductsPage;

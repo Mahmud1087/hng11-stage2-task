@@ -1,10 +1,30 @@
+'use client';
+
 import BackButton from '@/components/backButton';
 import Container from '@/components/container';
-import { CircleCheck, Disc2 } from 'lucide-react';
-import nigeriaFlag from '../../../public/nigeriaFlag.png';
+import { useAppContext } from '../context';
+import { useState } from 'react';
 import Image from 'next/image';
+import arrowBottom from '../../../public/arrow-bottom.png';
 
+const countries = [
+  'Nigeria',
+  'Canada',
+  'France',
+  'Germany',
+  'United States',
+  'United States',
+  'Ghana',
+  'South Africa',
+  'Uganda',
+  'Kenya',
+  'Belgium',
+  'Saudi Arabia',
+];
 const CheckoutPage = () => {
+  const { cartTotal } = useAppContext();
+  const [selectedCountry, setSelectedCountry] = useState('Nigeria');
+
   return (
     <Container className='my-12 text-gray-prim'>
       <BackButton />
@@ -17,13 +37,13 @@ const CheckoutPage = () => {
             <InputField
               name='firstName'
               text='First Name'
-              placeholder='Davison'
+              placeholder='enter first name'
               type='text'
             />
             <InputField
               name='lastName'
               text='Last Name'
-              placeholder='Miracle'
+              placeholder='enter last name'
               type='text'
             />
           </div>
@@ -33,27 +53,19 @@ const CheckoutPage = () => {
               <p className='font-bold text-lg'>Phone Number</p>
               <div className='h-12 w-full rounded-md bg-[#EAEEEF] px-3 flex items-center justify-between'>
                 <div className='flex items-center gap-3 h-full'>
-                  <aside>
-                    <Image
-                      src={nigeriaFlag}
-                      alt='Nigeria flag and a dropdown icon'
-                    />
-                  </aside>
-                  <hr className='w-1 h-3/5 border-r border-r-[#D9D9D9]' />
                   <input
                     type='number'
                     name='phoneNumber'
-                    placeholder='9032412745'
+                    placeholder='enter phone number'
                     className='h-full w-full font-semibold bg-transparent border-none focus:outline-none placeholder:text-gray-prim/65'
                   />
                 </div>
-                <CircleCheck color='#BF5428' size={20} />
               </div>
             </label>
             <InputField
               name='emailAddress'
               text='Email Address'
-              placeholder='davisonmiracle@gmail.com'
+              placeholder='enter email address'
               type='email'
             />
           </div>
@@ -61,21 +73,24 @@ const CheckoutPage = () => {
           <label htmlFor='country' className='flex flex-col gap-1 w-full'>
             <p className='font-bold text-lg'>Country</p>
             <div className='h-12 w-full rounded-md bg-[#EAEEEF] px-3 flex items-center'>
-              <div className='flex items-center gap-3 h-full'>
-                <aside>
-                  <Image
-                    src={nigeriaFlag}
-                    alt='Nigeria flag and a dropdown icon'
-                  />
-                </aside>
-                <hr className='w-1 h-3/5 border-r border-r-[#D9D9D9]' />
-                <input
-                  type='number'
-                  name='country'
-                  placeholder='Nigeria'
-                  className='h-full w-full font-semibold bg-transparent border-none focus:outline-none placeholder:text-gray-prim/65'
-                />
-              </div>
+              <select
+                value={selectedCountry}
+                name={selectedCountry}
+                onChange={(e) => setSelectedCountry(e.target.value)}
+                className='flex items-center gap-3 h-full w-full bg-transparent border-none focus:outline-none text-gray-prim cursor-pointer appearance-none placeholder:text-gray-prim/65'
+              >
+                {countries.map((country) => {
+                  return (
+                    <option key={country} value={country}>
+                      {country}
+                    </option>
+                  );
+                })}
+              </select>
+              <Image
+                src={arrowBottom}
+                alt='arrow button indicating a dropdown'
+              />
             </div>
           </label>
 
@@ -83,13 +98,13 @@ const CheckoutPage = () => {
             <InputField
               name='state'
               text='State'
-              placeholder='Lagos'
+              placeholder='enter state'
               type='text'
             />
             <InputField
               name='zipCode'
               text='Zip Code'
-              placeholder='411024'
+              placeholder='enter zip code'
               type='number'
             />
           </div>
@@ -97,7 +112,7 @@ const CheckoutPage = () => {
           <InputField
             name='billingAddress'
             text='Billing Address'
-            placeholder='No 15 Sumola Mende Maryland'
+            placeholder='enter billing address'
             type='text'
           />
         </aside>
@@ -109,7 +124,7 @@ const CheckoutPage = () => {
           <section className='mt-5 flex flex-col gap-3 text-gray-prim px-1'>
             <div className='flex justify-between'>
               <h2 className='font-bold text-lg'>Subtotal</h2>
-              <p>$410.00</p>
+              <p>${cartTotal}</p>
             </div>
             <div className='flex justify-between'>
               <h2 className='font-bold text-lg'>Shipping</h2>
@@ -120,7 +135,7 @@ const CheckoutPage = () => {
             </p>
             <div className='flex justify-between'>
               <h2 className='font-bold text-lg'>Total</h2>
-              <p>$410.00</p>
+              <p>${cartTotal}</p>
             </div>
             <button className='w-fit mx-auto mt-2 px-12 py-2 text-sm text-white bg-green-sec rounded-md transition-all font-semibold hover:bg-transparent hover:text-green-sec border-2 border-green-sec'>
               Continue Payment
@@ -131,19 +146,34 @@ const CheckoutPage = () => {
 
       <h1 className='font-bold text-[1.6rem] mb-8 mt-10'>Payment Method</h1>
 
-      <section className='flex flex-col gap-3 mb-6'>
-        <div className='flex items-center gap-2'>
-          <Disc2 size={20} color='#BF5428' />
+      <section className='flex flex-col gap-3 mb-6 w-fit'>
+        <label htmlFor='payWithCreditCard' className='flex items-center gap-2 '>
+          <input
+            type='radio'
+            name='payment'
+            id='payWithCreditCard'
+            className='accent-[#BF5428] w-4 h-4 cursor-pointer'
+          />
           <p className='font-semibold'>Pay with Credit Card</p>
-        </div>
-        <div className='flex items-center gap-2'>
-          <Disc2 size={20} />
+        </label>
+        <label htmlFor='payWithPaypal' className='flex items-center gap-2 '>
+          <input
+            type='radio'
+            name='payment'
+            id='payWithPaypal'
+            className='accent-[#BF5428] w-4 h-4 cursor-pointer'
+          />
           <p className='font-semibold'>Pay with PayPal</p>
-        </div>
-        <div className='flex items-center gap-2'>
-          <Disc2 size={20} />
-          <p className='font-semibold'>Pay with git cards</p>
-        </div>
+        </label>
+        <label htmlFor='payWithGiftCards' className='flex items-center gap-2 '>
+          <input
+            type='radio'
+            name='payment'
+            id='payWithGiftCards'
+            className='accent-[#BF5428] w-4 h-4 cursor-pointer'
+          />
+          <p className='font-semibold'>Pay with gift cards</p>
+        </label>
       </section>
 
       <section className='flex flex-col gap-8 w-[70%] mt-5'>
@@ -151,13 +181,13 @@ const CheckoutPage = () => {
           <InputField
             name='cardName'
             text='Name on Card'
-            placeholder='Davison Miracle'
+            placeholder='enter card name'
             type='text'
           />
           <InputField
             name='cardNumber'
-            text='Number on Card'
-            placeholder='55356787689'
+            text='Card Number'
+            placeholder='enter card number'
             type='number'
           />
         </div>
@@ -166,11 +196,42 @@ const CheckoutPage = () => {
           <InputField
             name='expiryDate'
             text='Expiry Date'
-            placeholder='05/27'
+            placeholder='enter expiry date'
             type='text'
           />
-          <InputField name='ccv' text='CCV' placeholder='313' type='number' />
+          <InputField
+            name='ccv'
+            text='CCV'
+            placeholder='enter ccv'
+            type='number'
+          />
         </div>
+      </section>
+
+      <section className='flex flex-col gap-4 mt-14 w-fit'>
+        <label
+          htmlFor='useShippingAddress'
+          className='flex items-center gap-2 '
+        >
+          <input
+            type='checkbox'
+            name='useShippingAddress'
+            id='useShippingAddress'
+            className='accent-green-sec w-4 h-4 cursor-pointer'
+          />
+          <p className='font-semibold'>
+            Use shipping address as Billing address
+          </p>
+        </label>
+        <label htmlFor='acceptTerms' className='flex items-center gap-2 '>
+          <input
+            type='checkbox'
+            name='acceptTerms'
+            id='acceptTerms'
+            className='accent-green-sec w-4 h-4 cursor-pointer'
+          />
+          <p className='font-semibold'>Accept Terms and Conditoion </p>
+        </label>
       </section>
     </Container>
   );

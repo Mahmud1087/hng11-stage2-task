@@ -1,28 +1,27 @@
-import searchIcon from '../../../public/search.png';
-import Image from 'next/image';
+'use client';
+
 import Link from 'next/link';
+import { ShoppingCart } from 'lucide-react';
+import { useAppContext } from '@/app/context';
 
 const NavButtons = () => {
+  const { cartData } = useAppContext();
+
   return (
     <div className='flex items-center gap-3'>
-      <label
-        htmlFor='search'
-        className='flex items-center px-4 py-2 border-2 border-green-sec rounded-md shadow-md'
+      <Link
+        href='cart'
+        className='relative flex items-center justify-center w-fit h-11 px-2 rounded-md bg-transparent border-2 border-green-prim transition-all text-green-sec hover:text-white hover:bg-green-sec'
       >
-        <input
-          type='text'
-          name='search'
-          className='border-none bg-transparent focus:outline-none'
-        />
-
-        <button className='flex items-center justify-center'>
-          <Image src={searchIcon} alt='search icon' />
-        </button>
-      </label>
+        <ShoppingCart />
+        <span className='absolute -top-3 -right-1 text-white  px-2 rounded-full bg-[#BF5428]'>
+          {cartData.length}
+        </span>
+      </Link>
 
       <Link
-        href='/products'
-        className='w-28 h-11 flex items-center justify-center rounded-md bg-green-sec text-white border-2 border-green-sec transition-all hover:bg-transparent hover:text-green-sec hover:text-semibold'
+        href='/'
+        className='w-32 h-11 flex items-center justify-center rounded-md bg-green-sec text-white border-2 border-green-sec transition-all hover:bg-transparent hover:text-green-sec hover:text-semibold'
       >
         Shop now
       </Link>

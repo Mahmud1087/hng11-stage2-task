@@ -6,25 +6,6 @@ import similarProductImg5 from '../../../public/similarProductImg5.png';
 import similarProductImg6 from '../../../public/similarProductImg6.png';
 import similarProductImg7 from '../../../public/similarProductImg7.png';
 
-export const cartData = [
-  {
-    title: 'Vegetable Interior Decor',
-    price: '$130.00',
-  },
-  {
-    title: 'Vegetable Interior Decor',
-    price: '$120.00',
-  },
-  {
-    title: 'Vegetable Interior Decor',
-    price: '$110.00',
-  },
-  {
-    title: 'Vegetable Interior Decor',
-    price: '$150.00',
-  },
-];
-
 export const similarProductsData = [
   {
     name: 'Pink Central Sofa',
