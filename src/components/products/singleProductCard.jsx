@@ -12,6 +12,9 @@ const SingleProductCard = ({ id, img, name, price, prevPrice }) => {
   const addToCart = () => {
     const product = products.find((prod) => prod.id === id);
     setCartData((prevState) => {
+      if (prevState.includes(product)) {
+        return prevState;
+      }
       return [...prevState, product];
     });
   };

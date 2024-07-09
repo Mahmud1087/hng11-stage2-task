@@ -2,15 +2,18 @@
 
 import BackButton from '@/components/backButton';
 import CartItem from '@/components/cart/cartItem';
-import { similarProductsData } from '@/components/cart/data';
 import Container from '@/components/container';
 import TrendingProduct from '@/components/trendingProduct';
 
 import Link from 'next/link';
 import { useAppContext } from '../context';
+import { products } from '@/components/productsData';
 
 const CartPage = () => {
   const { cartData, cartTotal } = useAppContext();
+  const similarProductsData = products.filter(
+    (prod) => prod.category === 'similar products'
+  );
   return (
     <Container className='my-12 '>
       <BackButton />

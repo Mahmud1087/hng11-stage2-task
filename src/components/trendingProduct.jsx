@@ -1,16 +1,19 @@
 'use client';
 import Image from 'next/image';
-import { similarProductsData } from './cart/data';
 import { useAppContext } from '@/app/context';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { products } from './productsData';
 
 const TrendingProduct = ({ id, img, name, price }) => {
   const { setCartData } = useAppContext();
 
   const addToCart = () => {
-    const product = similarProductsData.find((prod) => prod.id === id);
+    const product = products.find((prod) => prod.id === id);
     setCartData((prevState) => {
+      if (prevState.includes(product)) {
+        return prevState;
+      }
       return [...prevState, product];
     });
   };

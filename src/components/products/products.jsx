@@ -10,6 +10,10 @@ import { useAppContext } from '@/app/context';
 const Products = () => {
   const { isFilterOpen, setIsFilterOpen } = useAppContext();
 
+  const generalProducts = products.filter(
+    (prod) => prod.category === 'general products'
+  );
+
   return (
     <>
       <button
@@ -44,7 +48,7 @@ const Products = () => {
 
         <section className='w-full sm:w-4/6 lg:w-4/5'>
           <article className='mt-8 grid gap-5 sm:grid-cols-2 sm:gap-12 lg:grid-cols-3'>
-            {products.map((product) => {
+            {generalProducts.map((product) => {
               return <SingleProductCard key={product.id} {...product} />;
             })}
           </article>

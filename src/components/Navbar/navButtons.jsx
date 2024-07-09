@@ -19,12 +19,12 @@ const NavButtons = () => {
         </span>
       </Link>
 
-      <Link
+      {/* <Link
         href='/'
         className='w-32 h-9 flex items-center justify-center rounded-md bg-green-sec text-white border-2 border-green-sec transition-all hover:bg-transparent hover:text-green-sec hover:text-semibold sm:h-11'
       >
         Shop now
-      </Link>
+      </Link> */}
     </div>
   );
 };

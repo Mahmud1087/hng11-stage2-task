@@ -15,7 +15,7 @@ const Footer = () => {
 
   return (
     <footer className={`pt-20 pb-10 ${isFilterOpen && 'fixed sm:relative'}`}>
-      <Container className='flex flex-col gap-16 sm:flex-row sm:justify-between'>
+      <Container className='flex flex-col gap-16 lg:flex-row lg:justify-between'>
         <CompanyInfo />
         <div className='flex flex-col gap-14 sm:flex-row sm:gap-14'>
           <ProductCategories />
