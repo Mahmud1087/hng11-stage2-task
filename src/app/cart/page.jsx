@@ -48,23 +48,20 @@ const CartPage = () => {
         </aside>
 
         <aside className='w-full lg:w-[30%]'>
-          <div className='w-full h-16 rounded-md bg-[#EAEEEF] flex items-center font-bold pl-6 text-gray-prim'>
+          <div className='w-full h-16 rounded-md bg-[#EAEEEF] flex items-center font-bold pl-6 text-gray-prim sm:text-lg'>
             Order Summary
           </div>
           <section className='mt-5 flex flex-col gap-3 text-gray-prim px-1'>
             <div className='flex justify-between'>
-              <h2 className='font-bold'>Subtotal</h2>
+              <h2 className='font-bold sm:text-lg'>Subtotal</h2>
               <p>${cartTotal}</p>
             </div>
             <div className='flex justify-between'>
-              <h2 className='font-bold'>Shipping</h2>
+              <h2 className='font-bold sm:text-lg'>Shipping</h2>
               <p>Free</p>
             </div>
-            <p className='text-[#BF5428] text-sm cursor-pointer my-3 font-semibold'>
-              Add Coupon Code
-            </p>
-            <div className='flex justify-between'>
-              <h2 className='font-bold'>Total</h2>
+            <div className='flex justify-between mt-5'>
+              <h2 className='font-bold sm:text-lg'>Total</h2>
               <p>${cartTotal}</p>
             </div>
             <Link

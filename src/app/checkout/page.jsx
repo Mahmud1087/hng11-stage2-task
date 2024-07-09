@@ -123,10 +123,8 @@ const CheckoutPage = () => {
               <h2 className='font-bold text-lg'>Shipping</h2>
               <p>Free</p>
             </div>
-            <p className='text-[#BF5428] text-base cursor-pointer my-3 font-semibold'>
-              Add Coupon Code
-            </p>
-            <div className='flex justify-between'>
+
+            <div className='flex justify-between mt-5'>
               <h2 className='font-bold text-lg'>Total</h2>
               <p>${cartTotal}</p>
             </div>
