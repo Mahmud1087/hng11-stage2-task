@@ -49,19 +49,12 @@ const CheckoutPage = () => {
           </div>
 
           <div className='flex gap-5 flex-col sm:flex-row'>
-            <label htmlFor='phoneNumber' className='flex flex-col gap-1 w-full'>
-              <p className='font-bold text-lg'>Phone Number</p>
-              <div className='h-12 w-full rounded-md bg-[#EAEEEF] px-3 flex items-center justify-between'>
-                <div className='flex items-center gap-3 h-full'>
-                  <input
-                    type='number'
-                    name='phoneNumber'
-                    placeholder='enter phone number'
-                    className='h-full w-full font-semibold bg-transparent border-none focus:outline-none placeholder:text-gray-prim/65'
-                  />
-                </div>
-              </div>
-            </label>
+            <InputField
+              name='phoneNumber'
+              text='Phone Number'
+              placeholder='enter phone number'
+              type='number'
+            />
             <InputField
               name='emailAddress'
               text='Email Address'
@@ -72,7 +65,7 @@ const CheckoutPage = () => {
 
           <label htmlFor='country' className='flex flex-col gap-1 w-full'>
             <p className='font-bold text-lg'>Country</p>
-            <div className='h-12 w-full rounded-md bg-[#EAEEEF] px-3 flex items-center'>
+            <div className='h-12 w-full rounded-md bg-gray-prim/10 px-3 flex items-center'>
               <select
                 value={selectedCountry}
                 name={selectedCountry}
@@ -241,7 +234,7 @@ const InputField = ({ name, text, placeholder, type }) => {
   return (
     <label htmlFor={name} className='flex flex-col gap-1 w-full'>
       <p className='font-bold text-lg'>{text}</p>
-      <div className='h-12 w-full rounded-md bg-[#EAEEEF] px-3'>
+      <div className='h-12 w-full rounded-md bg-gray-prim/10 px-3'>
         <input
           type={type}
           name={name}
