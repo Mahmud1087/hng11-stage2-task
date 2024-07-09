@@ -28,8 +28,8 @@ const SingleProductCard = ({ id, img, name, price, prevPrice }) => {
 
   return (
     <article className='text-gray-prim'>
-      <aside className=''>
-        <Image src={img} alt='product image' />
+      <aside className='w-full'>
+        <Image src={img} alt='product image' className='w-full' />
       </aside>
       <h2 className='text-xl font-semibold mt-3 mb-1'>{name}</h2>
       <div className='flex gap-1'>
