@@ -97,7 +97,7 @@ const FilterBox = () => {
           <h1 className='font-bold text-gray-prim text-lg'>Category</h1>
           <button
             className={`${
-              isCategoryOpen && 'rotate-180'
+              !isCategoryOpen && 'rotate-180'
             } group-hover:rotate-180 transition-all`}
           >
             <ChevronUp strokeWidth={1} />
@@ -127,7 +127,7 @@ const FilterBox = () => {
           <h1 className='font-bold text-gray-prim text-lg'>Material</h1>
           <button
             className={`${
-              isMaterialOpen && 'rotate-180'
+              !isMaterialOpen && 'rotate-180'
             } group-hover:rotate-180 transition-all`}
           >
             <ChevronUp strokeWidth={1} />
@@ -150,7 +150,7 @@ const FilterBox = () => {
           <h1 className='font-bold text-gray-prim text-lg'>Color</h1>
           <button
             className={`${
-              isColorOpen && 'rotate-180'
+              !isColorOpen && 'rotate-180'
             } group-hover:rotate-180 transition-all`}
           >
             <ChevronUp strokeWidth={1} />
@@ -180,7 +180,7 @@ const FilterBox = () => {
           <h1 className='font-bold text-gray-prim text-lg'>Availability</h1>
           <button
             className={`${
-              isAvailability && 'rotate-180'
+              !isAvailability && 'rotate-180'
             } group-hover:rotate-180 transition-all`}
           >
             <ChevronUp strokeWidth={1} />
