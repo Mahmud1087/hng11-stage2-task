@@ -7,7 +7,10 @@ const Navbar = () => {
     <div className='h-24 bg-[#FEFAFB] flex items-center'>
       <Container className='flex justify-between items-center '>
         <Logo />
-        <Link href='/' className='text-green-sec font-bold flex gap-2'>
+        <Link
+          href='/'
+          className='text-green-sec font-bold hidden gap-2 sm:flex'
+        >
           Products
         </Link>
         <div className='flex items-center gap-16'>

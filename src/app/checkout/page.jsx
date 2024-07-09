@@ -31,9 +31,9 @@ const CheckoutPage = () => {
 
       <h1 className='font-bold text-[1.6rem] my-8'>Billing Details</h1>
 
-      <section className='flex gap-16'>
-        <aside className='w-[70%] flex flex-col gap-8'>
-          <div className='flex gap-5'>
+      <section className='flex gap-16 flex-col sm:flex-row'>
+        <aside className='w-full flex flex-col gap-8 sm:w-[70%]'>
+          <div className='flex flex-col gap-5 sm:flex-row'>
             <InputField
               name='firstName'
               text='First Name'
@@ -48,7 +48,7 @@ const CheckoutPage = () => {
             />
           </div>
 
-          <div className='flex gap-5'>
+          <div className='flex gap-5 flex-col sm:flex-row'>
             <label htmlFor='phoneNumber' className='flex flex-col gap-1 w-full'>
               <p className='font-bold text-lg'>Phone Number</p>
               <div className='h-12 w-full rounded-md bg-[#EAEEEF] px-3 flex items-center justify-between'>
@@ -94,7 +94,7 @@ const CheckoutPage = () => {
             </div>
           </label>
 
-          <div className='flex gap-5'>
+          <div className='flex gap-5 flex-col sm:flex-row'>
             <InputField
               name='state'
               text='State'
@@ -117,7 +117,7 @@ const CheckoutPage = () => {
           />
         </aside>
 
-        <aside className='w-[30%] mt-8'>
+        <aside className='w-full mt-8 sm:w-[30%]'>
           <div className='w-full h-14 rounded-md bg-[#EAEEEF] flex items-center font-bold pl-6 text-gray-prim text-lg'>
             Order Summary
           </div>
@@ -176,8 +176,8 @@ const CheckoutPage = () => {
         </label>
       </section>
 
-      <section className='flex flex-col gap-8 w-[70%] mt-5'>
-        <div className='flex gap-5'>
+      <section className='flex flex-col gap-8 w-full mt-5 sm:sm:w-[70%]'>
+        <div className='flex flex-col gap-5 sm:flex-row'>
           <InputField
             name='cardName'
             text='Name on Card'
@@ -192,7 +192,7 @@ const CheckoutPage = () => {
           />
         </div>
 
-        <div className='flex gap-5'>
+        <div className='flex gap-5 flex-col sm:flex-row'>
           <InputField
             name='expiryDate'
             text='Expiry Date'

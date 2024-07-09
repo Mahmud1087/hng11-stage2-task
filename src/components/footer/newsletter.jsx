@@ -2,7 +2,7 @@ const Newsletter = () => {
   return (
     <div>
       <h1 className='text-xl font-bold py-2'>Newsletter</h1>
-      <form className='bg-[#EAEEEF] h-12'>
+      <form className='bg-[#EAEEEF] h-12 flex justify-between items-center'>
         <label htmlFor='subscribe'>
           <input
             type='email'

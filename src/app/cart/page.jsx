@@ -15,13 +15,13 @@ const CartPage = () => {
     <Container className='my-12 '>
       <BackButton />
 
-      <section className='flex gap-16'>
-        <aside className='w-[70%]'>
+      <section className='flex flex-col gap-16 lg:flex-row'>
+        <aside className='w-full lg:w-[70%]'>
           <div className='w-full h-16 rounded-md bg-[#EAEEEF] flex items-center text-gray-prim  font-bold'>
             <p className='w-[55%] pl-8'>Item</p>
             <p className='w-[15%]'>Price</p>
             <p className='w-1/5'> Quantity</p>
-            <p className='w-1/5'>Subtotal</p>
+            <p className='w-1/5 hidden sm:block'>Subtotal</p>
           </div>
           {cartData.length !== 0 ? (
             <div className='mt-5 flex flex-col text-gray-prim px-1'>
@@ -44,7 +44,7 @@ const CartPage = () => {
           )}
         </aside>
 
-        <aside className='w-[30%]'>
+        <aside className='w-full lg:w-[30%]'>
           <div className='w-full h-16 rounded-md bg-[#EAEEEF] flex items-center font-bold pl-6 text-gray-prim'>
             Order Summary
           </div>

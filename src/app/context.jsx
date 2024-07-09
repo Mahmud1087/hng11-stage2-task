@@ -10,6 +10,7 @@ export function useAppContext() {
 
 export default function AppProvider({ children }) {
   const [cartData, setCartData] = useState([]);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const cartTotal = cartData.reduce((total, item) => {
     let prodTotal;
@@ -19,7 +20,15 @@ export default function AppProvider({ children }) {
   }, 0);
 
   return (
-    <AppContext.Provider value={{ cartData, setCartData, cartTotal }}>
+    <AppContext.Provider
+      value={{
+        cartData,
+        isFilterOpen,
+        setIsFilterOpen,
+        setCartData,
+        cartTotal,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

@@ -75,17 +75,26 @@ const CartItem = ({ price, name, img, id, amount }) => {
         </div>
       </section>
       <section className='w-1/5 flex gap-16'>
-        <p className='font-semibold'>${price}</p>
+        <p className='font-semibold hidden sm:block'>${price}</p>
         <button
           onClick={() => {
             delCartItem();
             deleteItemNotification();
           }}
-          className='w-5 h-5 rounded-full bg-[#BF5428] flex items-center justify-center'
+          className='w-5 h-5 rounded-full bg-[#BF5428] hidden items-center justify-center sm:flex'
         >
           <X color='#fff' size={12} />
         </button>
       </section>
+      <button
+        onClick={() => {
+          delCartItem();
+          deleteItemNotification();
+        }}
+        className='w-5 h-5 rounded-full bg-[#BF5428] flex items-center justify-center sm:hidden'
+      >
+        <X color='#fff' size={12} />
+      </button>
     </div>
   );
 };
