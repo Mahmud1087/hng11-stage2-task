@@ -32,9 +32,9 @@ const ProductDetail = ({ params }) => {
   return (
     <div className='w-[90%] lg:w-4/6 mx-auto my-12'>
       <BackButton />
-      <div className='flex items-center justify-center'>
-        <section className='w-1/2 items-center justify-center'>
-          <aside className='w-[90%]'>
+      <div className='flex flex-col items-center justify-center sm:flex-row'>
+        <section className='w-full sm:w-1/2 items-center justify-center'>
+          <aside className='w-full sm:w-[90%]'>
             <Image
               src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
               alt='image'
@@ -43,7 +43,7 @@ const ProductDetail = ({ params }) => {
             />
           </aside>
         </section>
-        <section className='w-1/2 text-gray-prim'>
+        <section className='w-full text-gray-prim mt-10 sm:mt-0 sm:w-1/2'>
           <h1 className='font-semibold text-3xl'>{product.name}</h1>
           <p className='my-5'>{product.description}</p>
           <h2 className='font-semibold text-2xl mb-4'>
