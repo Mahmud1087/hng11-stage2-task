@@ -51,7 +51,7 @@ const CartPage = () => {
           <section className='mt-5 flex flex-col gap-3 text-gray-prim px-1'>
             <div className='flex justify-between'>
               <h2 className='font-bold sm:text-lg'>Subtotal</h2>
-              <p>${cartTotal}</p>
+              <p>${cartTotal}.00</p>
             </div>
             <div className='flex justify-between'>
               <h2 className='font-bold sm:text-lg'>Shipping</h2>
