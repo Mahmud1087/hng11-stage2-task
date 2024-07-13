@@ -33,7 +33,7 @@ export default function AppProvider({ children }) {
 
   const cartTotal = cartData.reduce((total, item) => {
     let prodTotal;
-    prodTotal = item.amount * item.price;
+    prodTotal = item.available_quantity * item.current_price[0].USD[0];
     total += prodTotal;
     return total;
   }, 0);

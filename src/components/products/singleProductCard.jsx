@@ -2,8 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const SingleProductCard = ({
-  id,
-  description: desc,
+  url_slug,
   name,
   current_price: price,
   photos,
@@ -27,7 +26,7 @@ const SingleProductCard = ({
         {/* <p className='text-[13px] line-through  mt-1'>${prevPrice}</p> */}
       </div>
       <Link
-        href={`/${id}`}
+        href={`/${url_slug}`}
         className='px-10 py-2 border-2 border-green-sec rounded-md text-green-sec font-semibold hover:bg-green-sec hover:text-white transition-all'
       >
         Add to cart

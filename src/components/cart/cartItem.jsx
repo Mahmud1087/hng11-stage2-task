@@ -6,7 +6,13 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { X } from 'lucide-react';
 
-const CartItem = ({ price, name, img, id, amount }) => {
+const CartItem = ({
+  current_price,
+  name,
+  photos,
+  id,
+  available_quantity: amount,
+}) => {
   const { cartData, setCartData } = useAppContext();
 
   const delCartItem = () => {
@@ -27,7 +33,7 @@ const CartItem = ({ price, name, img, id, amount }) => {
         product.id === id
           ? {
               ...product,
-              amount: product.amount + 1,
+              available_quantity: product.available_quantity + 1,
             }
           : product
       )
@@ -39,8 +45,10 @@ const CartItem = ({ price, name, img, id, amount }) => {
         product.id === id
           ? {
               ...product,
-              amount:
-                product.amount <= 1 ? (product.amount = 1) : product.amount - 1,
+              available_quantity:
+                product.available_quantity <= 1
+                  ? (product.available_quantity = 1)
+                  : product.available_quantity - 1,
             }
           : product
       )
@@ -51,11 +59,16 @@ const CartItem = ({ price, name, img, id, amount }) => {
     <div className='w-full flex items-center border-b border-b-[#EAEEEF] last:border-b-0 py-4'>
       <section className='w-1/2 flex gap-4 items-center'>
         <div className='w-28'>
-          <Image src={img} alt='single product image' />
+          <Image
+            src={`https://api.timbu.cloud/images/${photos[0].url}`}
+            alt='product image'
+            width={1000}
+            height={1000}
+          />
         </div>
         <p className='text-lg text-gray-prim w-1/2'>{name}</p>
       </section>
-      <p className='w-[15%] text-lg'>${price}.00</p>
+      <p className='w-[15%] text-lg'>${current_price[0].USD[0]}.00</p>
       <section className='w-1/4'>
         <div className='w-fit p-2 bg-[#EAEEEF] rounded-full text-xs flex gap-4'>
           <button
@@ -74,7 +87,7 @@ const CartItem = ({ price, name, img, id, amount }) => {
         </div>
       </section>
       <section className='w-1/5 flex gap-16'>
-        <p className='hidden text-lg sm:block'>${price}.00</p>
+        <p className='hidden text-lg sm:block'>${current_price[0].USD[0]}.00</p>
         <button
           onClick={() => {
             delCartItem();

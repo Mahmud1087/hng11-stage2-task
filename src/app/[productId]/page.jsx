@@ -1,7 +1,6 @@
 'use client';
 
 import BackButton from '@/components/backButton';
-import { products } from '@/components/productsData';
 import { Star } from 'lucide-react';
 import Image from 'next/image';
 import { toast } from 'react-toastify';
@@ -12,17 +11,14 @@ const ProductDetail = ({ params }) => {
   const { productss, setCartData } = useAppContext();
   const productID = params.productId;
 
-  const product = productss.find((prod) => prod.id === productID);
-  console.log(productID);
-  console.log(products);
+  const product = productss.find((prod) => prod.url_slug === productID);
 
   const addToCart = () => {
-    const prod = productss.find((prod) => prod.id === productID);
     setCartData((prevState) => {
-      if (prevState.includes(prod)) {
+      if (prevState.includes(product)) {
         return prevState;
       }
-      return [...prevState, prod];
+      return [...prevState, product];
     });
   };
 
