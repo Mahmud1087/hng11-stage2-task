@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 const Products = () => {
-  const { isFilterOpen, setIsFilterOpen, productss, fetchProducts } =
+  const { isFilterOpen, setIsFilterOpen, productss, fetchProducts, isLoading } =
     useAppContext();
   const [btnActive, setBtnActive] = useState(1);
 
@@ -54,23 +54,25 @@ const Products = () => {
             })}
           </article>
 
-          <article className='w-full flex justify-end mt-12 '>
-            {[1, 2, 3].map((item, i) => {
-              return (
-                <button
-                  onClick={() => {
-                    setBtnActive(item);
-                    fetchProducts(item);
-                  }}
-                  key={i}
-                  className={`${
-                    btnActive === i + 1 && 'bg-[#BF5428] text-white '
-                  } pt-1 px-3 rounded-md text-lg font-bold`}
-                >
-                  {item}
-                </button>
-              );
-            })}
+          <article className='w-full flex justify-center mt-12 '>
+            <div className='px-5 py-2 border-2 border-[#BF5428]/50 rounded-lg'>
+              {[1, 2, 3].map((item, i) => {
+                return (
+                  <button
+                    onClick={() => {
+                      setBtnActive(item);
+                      fetchProducts(item);
+                    }}
+                    key={i}
+                    className={`${
+                      btnActive === item && 'bg-[#BF5428] text-white '
+                    } pt-1 px-3 rounded-md text-lg font-bold`}
+                  >
+                    {item}
+                  </button>
+                );
+              })}
+            </div>
           </article>
         </section>
       </Container>

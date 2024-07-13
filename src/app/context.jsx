@@ -17,7 +17,9 @@ export default function AppProvider({ children }) {
   const fetchProducts = async (page) => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/products/product-page-${page}`);
+      const response = await fetch(`/api/products/product-page-${page}`, {
+        cache: 'no-store',
+      });
       const data = await response.json();
       setProducts(data.items);
       setLoading(false);
