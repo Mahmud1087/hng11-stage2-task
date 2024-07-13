@@ -3,9 +3,9 @@ import Logo from '../logo';
 
 const CompanyInfo = () => {
   return (
-    <div className='flex flex-col justify-center items-center'>
+    <div className='flex flex-col justify-center'>
       <Logo />
-      <p className='text-[0.94rem] font-medium text-gray-prim my-2'>
+      <p className='text-sm font-medium text-gray-prim my-2'>
         davisonmiracle98@gmailcom
       </p>
       <article className='flex gap-2'>

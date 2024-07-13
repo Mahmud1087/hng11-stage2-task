@@ -30,7 +30,7 @@ const TrendingProduct = ({ id, img, name, price }) => {
       <aside className='w-[60vw] sm:w-[35vw] lg:w-full'>
         <Image src={img} alt={name} />
       </aside>
-      <h2 className='text-xl font-semibold mt-4 mb-3'>{name}</h2>
+      <h2 className='text-[1.2rem] mt-4 mb-3'>{name}</h2>
       <p className='text-2xl font-bold mb-3'>${price}</p>
       <button
         onClick={() => {

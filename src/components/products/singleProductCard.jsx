@@ -31,17 +31,17 @@ const SingleProductCard = ({ id, img, name, price, prevPrice }) => {
       <aside className='w-full'>
         <Image src={img} alt='product image' className='w-full' />
       </aside>
-      <h2 className='text-xl font-semibold mt-3 mb-1'>{name}</h2>
+      <h2 className='font-semibold mt-3 mb-1 text-[1.06rem]'>{name}</h2>
       <div className='flex gap-1'>
-        <p className='text-2xl font-bold mb-2 lg:text-3xl'>${price}</p>
-        <p className='text-sm line-through font-bold'>${prevPrice}</p>
+        <p className='text-2xl font-bold mb-2 lg:text-[1.7rem]'>${price}</p>
+        <p className='text-[13px] line-through  mt-1'>${prevPrice}</p>
       </div>
       <button
         onClick={() => {
           addToCart();
           addItemNotification();
         }}
-        className='px-10 py-1 border-2 border-green-sec rounded-md text-green-sec font-semibold hover:bg-green-sec hover:text-white transition-all'
+        className='px-10 py-2 border-2 border-green-sec rounded-md text-green-sec font-semibold hover:bg-green-sec hover:text-white transition-all'
       >
         Add to cart
       </button>

@@ -90,8 +90,8 @@ const FilterBox = () => {
   const [isAvailability, setIsAvailability] = useState(false);
 
   return (
-    <div className='mt-5 w-full flex flex-col gap-6'>
-      <section className='h-fit py-4 px-5 border-2 border-green-sec rounded-xl bg-[#f9f9f9]'>
+    <div className='mt-5 w-full grid gap-6 sm:grid-cols-2 lg:grid-cols-1'>
+      <section className='h-fit pt-3 px-5 border-2 border-green-sec rounded-2xl bg-[#f9f9f9]'>
         <div
           className='flex justify-between items-center mb-3 group cursor-pointer'
           onClick={() => setIsCategoryOpen(!isCategoryOpen)}
@@ -106,7 +106,7 @@ const FilterBox = () => {
           </div>
         </div>
         {isCategoryOpen && (
-          <section className='flex flex-col gap-3 justify-center'>
+          <section className='flex flex-col gap-3 justify-center pb-6'>
             {category.map((cat) => {
               return (
                 <FilterOption
@@ -121,7 +121,7 @@ const FilterBox = () => {
         )}
       </section>
 
-      <section className='h-fit py-4 px-5 border-2 border-green-sec rounded-xl bg-[#f9f9f9]'>
+      <section className='h-fit pt-3 px-5 border-2 border-green-sec rounded-2xl bg-[#f9f9f9]'>
         <div
           className='flex justify-between items-center mb-3 group cursor-pointer'
           onClick={() => setIsMaterialOpen(!isMaterialOpen)}
@@ -136,7 +136,7 @@ const FilterBox = () => {
           </div>
         </div>
         {isMaterialOpen && (
-          <article className='flex gap-2 flex-wrap'>
+          <article className='flex gap-2 flex-wrap pb-6'>
             {material.map((item) => {
               return <MaterialOption key={item} item={item} />;
             })}
@@ -144,7 +144,7 @@ const FilterBox = () => {
         )}
       </section>
 
-      <section className='h-fit py-4 px-5 border-2 border-green-sec rounded-xl bg-[#f9f9f9]'>
+      <section className='h-fit pt-3 px-5 border-2 border-green-sec rounded-2xl bg-[#f9f9f9]'>
         <div
           className='flex justify-between items-center mb-3 group cursor-pointer'
           onClick={() => setIsColorOpen(!isColorOpen)}
@@ -159,7 +159,7 @@ const FilterBox = () => {
           </div>
         </div>
         {isColorOpen && (
-          <article className='flex flex-col gap-3 justify-center'>
+          <article className='flex flex-col gap-3 justify-center pb-6'>
             {color.map((cat) => {
               return (
                 <FilterOption
@@ -174,7 +174,7 @@ const FilterBox = () => {
         )}
       </section>
 
-      <section className='h-fit py-4 px-5 border-2 border-green-sec rounded-xl bg-[#f9f9f9]'>
+      <section className='h-fit pt-3 px-5 border-2 border-green-sec rounded-2xl bg-[#f9f9f9]'>
         <div
           className='flex justify-between items-center mb-3 group cursor-pointer'
           onClick={() => setIsAvailability(!isAvailability)}
@@ -189,7 +189,7 @@ const FilterBox = () => {
           </div>
         </div>
         {isAvailability && (
-          <article className='flex flex-col gap-3 justify-center'>
+          <article className='flex flex-col gap-3 justify-center pb-6'>
             {availability.map((cat) => {
               return (
                 <FilterOption

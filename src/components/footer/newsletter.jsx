@@ -1,8 +1,12 @@
 const Newsletter = () => {
   return (
     <div>
-      <h1 className='text-xl font-bold py-2'>Newsletter</h1>
-      <form className='bg-[#EAEEEF] h-12 flex justify-between items-center'>
+      <h1 className='hidden text-xl font-bold py-2'>Newsletter</h1>
+      <div className='text-gray-prim mb-5 sm:block'>
+        <h1 className='text-xl font-bold'>Join our newsletter</h1>
+        <p>Get connected to regular updates</p>
+      </div>
+      <form className='bg-[#EAEEEF] h-12 flex justify-between items-center rounded-l-lg'>
         <label htmlFor='subscribe'>
           <input
             type='email'

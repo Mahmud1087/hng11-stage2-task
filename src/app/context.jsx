@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 const AppContext = createContext();
 
@@ -11,6 +11,25 @@ export function useAppContext() {
 export default function AppProvider({ children }) {
   const [cartData, setCartData] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [productss, setProducts] = useState([]);
+  const [isLoading, setLoading] = useState(false);
+
+  const fetchProducts = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch('/api/products');
+      const data = await response.json();
+      setProducts(data.items);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log(error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
   const cartTotal = cartData.reduce((total, item) => {
     let prodTotal;
@@ -24,9 +43,13 @@ export default function AppProvider({ children }) {
       value={{
         cartData,
         isFilterOpen,
+        cartTotal,
+        productss,
+        isLoading,
         setIsFilterOpen,
         setCartData,
-        cartTotal,
+        setProducts,
+        setLoading,
       }}
     >
       {children}

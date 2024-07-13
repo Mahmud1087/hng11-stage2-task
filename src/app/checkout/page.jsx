@@ -1,6 +1,5 @@
 'use client';
 
-import BackButton from '@/components/backButton';
 import Container from '@/components/container';
 import { useAppContext } from '../context';
 import { useState } from 'react';
@@ -26,13 +25,11 @@ const CheckoutPage = () => {
   const [selectedCountry, setSelectedCountry] = useState('Nigeria');
 
   return (
-    <Container className='my-12 text-gray-prim'>
-      <BackButton />
-
+    <Container className='mt-24 mb-12 text-gray-prim'>
       <h1 className='font-bold text-[1.6rem] my-8'>Billing Details</h1>
 
       <section className='flex gap-16 flex-col sm:flex-row'>
-        <aside className='w-full flex flex-col gap-8 sm:w-[70%]'>
+        <aside className='w-full flex flex-col gap-8 sm:w-3/4'>
           <div className='flex flex-col gap-5 sm:flex-row'>
             <InputField
               name='firstName'
@@ -70,7 +67,7 @@ const CheckoutPage = () => {
                 value={selectedCountry}
                 name={selectedCountry}
                 onChange={(e) => setSelectedCountry(e.target.value)}
-                className='flex items-center gap-3 h-full w-full bg-transparent border-none focus:outline-none text-gray-prim cursor-pointer appearance-none placeholder:text-gray-prim/65'
+                className='flex items-center gap-3 h-full w-full bg-transparent border-none focus:outline-none text-gray-prim cursor-pointer appearance-none text-sm placeholder:text-gray-prim/40 placeholder:text-sm'
               >
                 {countries.map((country) => {
                   return (
@@ -110,14 +107,14 @@ const CheckoutPage = () => {
           />
         </aside>
 
-        <aside className='w-full mt-8 sm:w-[30%]'>
+        <aside className='w-full mt-8 sm:w-1/4'>
           <div className='w-full h-14 rounded-md bg-[#EAEEEF] flex items-center font-bold pl-6 text-gray-prim text-lg'>
             Order Summary
           </div>
           <section className='mt-5 flex flex-col gap-3 text-gray-prim px-1'>
             <div className='flex justify-between'>
               <h2 className='font-bold text-lg'>Subtotal</h2>
-              <p>${cartTotal}</p>
+              <p>${cartTotal}.00</p>
             </div>
             <div className='flex justify-between'>
               <h2 className='font-bold text-lg'>Shipping</h2>
@@ -126,16 +123,16 @@ const CheckoutPage = () => {
 
             <div className='flex justify-between mt-5'>
               <h2 className='font-bold text-lg'>Total</h2>
-              <p>${cartTotal}</p>
+              <p>${cartTotal}.00</p>
             </div>
             <button className='w-fit mx-auto mt-2 px-12 py-2 text-sm text-white bg-green-sec rounded-md transition-all font-semibold hover:bg-[#234149] border-2 border-green-sec'>
-              Continue Payment
+              Make Payment
             </button>
           </section>
         </aside>
       </section>
 
-      <h1 className='font-bold text-[1.6rem] mb-8 mt-10 '>Payment Method</h1>
+      <h1 className='font-bold text-[1.6rem] mb-2 mt-10'>Payment Method</h1>
 
       <section className='flex flex-col gap-3 mb-6 w-fit'>
         <label htmlFor='payWithCreditCard' className='flex items-center gap-2 '>
@@ -167,7 +164,7 @@ const CheckoutPage = () => {
         </label>
       </section>
 
-      <section className='flex flex-col gap-8 w-full mt-5 sm:sm:w-[70%]'>
+      <section className='flex flex-col gap-8 w-full mt-10 sm:sm:w-[70%]'>
         <div className='flex flex-col gap-5 sm:flex-row'>
           <InputField
             name='cardName'
@@ -199,7 +196,7 @@ const CheckoutPage = () => {
         </div>
       </section>
 
-      <section className='flex flex-col gap-4 mt-14 w-fit'>
+      <section className='flex flex-col gap-4 mt-8 w-fit'>
         <label
           htmlFor='useShippingAddress'
           className='flex items-center gap-2 '
@@ -208,9 +205,9 @@ const CheckoutPage = () => {
             type='checkbox'
             name='useShippingAddress'
             id='useShippingAddress'
-            className='accent-green-sec w-6 h-6 cursor-pointer'
+            className='accent-green-sec w-7 h-7 cursor-pointer'
           />
-          <p className='font-semibold'>
+          <p className='text-sm text-gray-prim'>
             Use shipping address as Billing address
           </p>
         </label>
@@ -219,9 +216,9 @@ const CheckoutPage = () => {
             type='checkbox'
             name='acceptTerms'
             id='acceptTerms'
-            className='accent-green-sec w-6 h-6 cursor-pointer'
+            className='accent-green-sec w-7 h-7 cursor-pointer'
           />
-          <p className='font-semibold'>Accept Terms and Conditoion </p>
+          <p className='text-sm text-gray-prim'>Accept Terms and Conditoion </p>
         </label>
       </section>
     </Container>
@@ -237,7 +234,7 @@ const InputField = ({ name, text, placeholder, type }) => {
           type={type}
           name={name}
           placeholder={placeholder}
-          className='h-full w-full font-semibold bg-transparent border-none focus:outline-none placeholder:text-gray-prim/65'
+          className='h-full w-full text-sm font-semibold bg-transparent border-none focus:outline-none placeholder:text-gray-prim/40 placeholder:text-sm'
         />
       </div>
     </label>

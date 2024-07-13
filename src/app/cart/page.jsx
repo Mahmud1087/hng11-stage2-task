@@ -1,6 +1,5 @@
 'use client';
 
-import BackButton from '@/components/backButton';
 import CartItem from '@/components/cart/cartItem';
 import Container from '@/components/container';
 import TrendingProduct from '@/components/trendingProduct';
@@ -15,19 +14,17 @@ const CartPage = () => {
     (prod) => prod.category === 'similar products'
   );
   return (
-    <Container className='my-12 '>
-      <BackButton />
-
+    <Container className='my-16'>
       <section className='flex flex-col gap-16 lg:flex-row'>
         <aside className='w-full lg:w-[70%]'>
-          <div className='w-full h-16 rounded-md bg-[#EAEEEF] flex items-center text-gray-prim  font-bold'>
-            <p className='w-[55%] pl-8'>Item</p>
+          <div className='w-full px-2 text-[1.07rem] h-16 rounded-md bg-[#EAEEEF] flex items-center text-gray-prim  font-bold'>
+            <p className='w-1/2 '>Item</p>
             <p className='w-[15%]'>Price</p>
-            <p className='w-1/5'> Quantity</p>
+            <p className='w-1/4'> Quantity</p>
             <p className='w-1/5 hidden sm:block'>Subtotal</p>
           </div>
           {cartData.length !== 0 ? (
-            <div className='mt-5 flex flex-col text-gray-prim px-1'>
+            <div className='flex flex-col text-gray-prim px-1'>
               {cartData.map((item, i) => {
                 return <CartItem key={i} {...item} />;
               })}
@@ -75,7 +72,7 @@ const CartPage = () => {
       </section>
 
       <div>
-        <h1 className='text-[1.7rem] text-gray-prim font-bold mt-32'>
+        <h1 className='text-[1.7rem] text-gray-prim font-bold mt-8'>
           Discover Similar Products
         </h1>
         <section className='overflow-x-scroll no-scrollbar h-fit'>

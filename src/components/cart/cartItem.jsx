@@ -49,14 +49,14 @@ const CartItem = ({ price, name, img, id, amount }) => {
 
   return (
     <div className='w-full flex items-center border-b border-b-[#EAEEEF] last:border-b-0 py-4'>
-      <section className='w-[55%] flex gap-4 items-center'>
+      <section className='w-1/2 flex gap-4 items-center'>
         <div className='w-28'>
           <Image src={img} alt='single product image' />
         </div>
-        <p className='text-lg font-semibold text-gray-prim'>{name}</p>
+        <p className='text-lg text-gray-prim w-1/2'>{name}</p>
       </section>
-      <p className='w-[15%] font-semibold'>${price}</p>
-      <section className='w-1/5'>
+      <p className='w-[15%] text-lg'>${price}.00</p>
+      <section className='w-1/4'>
         <div className='w-fit p-2 bg-[#EAEEEF] rounded-full text-xs flex gap-4'>
           <button
             onClick={decreaseItem}
@@ -74,13 +74,13 @@ const CartItem = ({ price, name, img, id, amount }) => {
         </div>
       </section>
       <section className='w-1/5 flex gap-16'>
-        <p className='font-semibold hidden sm:block'>${price}</p>
+        <p className='hidden text-lg sm:block'>${price}.00</p>
         <button
           onClick={() => {
             delCartItem();
             deleteItemNotification();
           }}
-          className='w-5 h-5 rounded-full bg-[#BF5428] hidden items-center justify-center sm:flex'
+          className='w-5 h-5 rounded-full bg-[#BF5428] hidden items-center justify-center sm:mr-2 sm:flex'
         >
           <X color='#fff' size={12} />
         </button>
