@@ -12,11 +12,12 @@ const ProductDetail = ({ params }) => {
   const { productss, setCartData } = useAppContext();
   const productID = params.productId;
 
-  const product = productss.find((prod) => prod.id === Number(productID));
-  // console.log(product);
+  const product = productss.find((prod) => prod.id === productID);
+  console.log(productID);
+  console.log(products);
 
   const addToCart = () => {
-    const prod = products.find((prod) => prod.id === product.id);
+    const prod = productss.find((prod) => prod.id === productID);
     setCartData((prevState) => {
       if (prevState.includes(prod)) {
         return prevState;
@@ -37,22 +38,38 @@ const ProductDetail = ({ params }) => {
       <BackButton />
       <div className='flex items-center justify-center'>
         <section className='w-1/2 items-center justify-center'>
-          <aside>
+          <aside className='w-[90%]'>
             <Image
-              src={`https://api.timbu.cloud/${product.photos[0].url}`}
+              src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
               alt='image'
+              width={1000}
+              height={1000}
             />
           </aside>
         </section>
         <section className='w-1/2 text-gray-prim'>
           <h1 className='font-semibold text-3xl'>{product.name}</h1>
           <p className='my-5'>{product.description}</p>
-          <h2 className='font-semibold text-2xl mb-4'>${product.price}.00</h2>
-          <h2 className='font-semibold'>Features:</h2>
-          <ul className='pl-12'>
+          <h2 className='font-semibold text-2xl mb-4'>
+            ${product.current_price[0].USD[0]}.00
+          </h2>
+          <h2 className='text-2xl font-semibold'>Features:</h2>
+          <ul className='pl-24'>
             <li className='flex gap-4'>
-              <Star color='#BF5428' width={30} />
-              <p>Amazing collections for your interior</p>
+              <Star color='#BF5428' width={20} />
+              <p>Durability</p>
+            </li>
+            <li className='flex gap-4'>
+              <Star color='#BF5428' width={20} />
+              <p>Aesthetically appealing</p>
+            </li>
+            <li className='flex gap-4'>
+              <Star color='#BF5428' width={20} />
+              <p>Ease of maintainance</p>
+            </li>
+            <li className='flex gap-4'>
+              <Star color='#BF5428' width={20} />
+              <p>Comes in different colors</p>
             </li>
           </ul>
 
