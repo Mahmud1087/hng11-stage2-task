@@ -7,6 +7,7 @@ import categoryIcon from '../../../public/category-icon.png';
 import { useAppContext } from '@/app/context';
 import Image from 'next/image';
 import { useState } from 'react';
+import Loading from '../loading';
 
 const Products = () => {
   const { isFilterOpen, setIsFilterOpen, productss, fetchProducts, isLoading } =
@@ -49,31 +50,37 @@ const Products = () => {
 
         <section className='w-full sm:w-full lg:w-3/4'>
           <article className='mt-8 grid gap-5 sm:grid-cols-2 sm:gap-5 sm:gap-y-14 lg:grid-cols-3'>
-            {[...productss].reverse().map((product, i) => {
-              return <SingleProductCard key={product.id} {...product} />;
-            })}
+            {isLoading ? (
+              <Loading />
+            ) : (
+              [...productss].reverse().map((product, i) => {
+                return <SingleProductCard key={product.id} {...product} />;
+              })
+            )}
           </article>
 
-          <article className='w-full flex justify-center mt-12 '>
-            <div className='px-5 py-2 border-2 border-[#BF5428]/50 rounded-lg'>
-              {[1, 2, 3].map((item, i) => {
-                return (
-                  <button
-                    onClick={() => {
-                      setBtnActive(item);
-                      fetchProducts(item);
-                    }}
-                    key={i}
-                    className={`${
-                      btnActive === item && 'bg-[#BF5428] text-white '
-                    } pt-1 px-3 rounded-md text-lg font-bold`}
-                  >
-                    {item}
-                  </button>
-                );
-              })}
-            </div>
-          </article>
+          {!isLoading && (
+            <article className='w-full flex justify-center mt-12 '>
+              <div className='px-5 py-2 border-2 border-[#BF5428]/50 rounded-lg'>
+                {[1, 2, 3].map((item, i) => {
+                  return (
+                    <button
+                      onClick={() => {
+                        setBtnActive(item);
+                        fetchProducts(item);
+                      }}
+                      key={i}
+                      className={`${
+                        btnActive === item && 'bg-[#BF5428] text-white '
+                      } pt-1 px-3 rounded-md text-lg font-bold`}
+                    >
+                      {item}
+                    </button>
+                  );
+                })}
+              </div>
+            </article>
+          )}
         </section>
       </Container>
     </>
