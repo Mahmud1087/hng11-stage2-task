@@ -18,7 +18,7 @@ const CartPage = () => {
       <section className='flex flex-col gap-16 lg:flex-row'>
         <aside className='w-full lg:w-[70%]'>
           <div className='w-full px-2 text-[1.07rem] h-16 rounded-md bg-[#EAEEEF] flex items-center text-gray-prim  font-bold'>
-            <p className='w-1/2 '>Item</p>
+            <p className='w-[60%] sm:w-1/2 '>Item</p>
             <p className='w-[15%]'>Price</p>
             <p className='w-1/4'> Quantity</p>
             <p className='w-1/5 hidden sm:block'>Subtotal</p>

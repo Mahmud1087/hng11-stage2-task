@@ -57,8 +57,8 @@ const CartItem = ({
 
   return (
     <div className='w-full flex items-center border-b border-b-[#EAEEEF] last:border-b-0 py-4'>
-      <section className='w-1/2 flex gap-4 items-center'>
-        <div className='w-28'>
+      <section className='w-[60%] flex gap-4 items-center sm:w-1/2'>
+        <div className='w-20 sm:w-28'>
           <Image
             src={`https://api.timbu.cloud/images/${photos[0].url}`}
             alt='product image'
@@ -68,9 +68,9 @@ const CartItem = ({
         </div>
         <p className='text-lg text-gray-prim w-1/2'>{name}</p>
       </section>
-      <p className='w-[15%] text-lg'>${current_price[0].USD[0]}.00</p>
+      <p className='w-[15%] text-lg'>${current_price[0].USD[0]}</p>
       <section className='w-1/4'>
-        <div className='w-fit p-2 bg-[#EAEEEF] rounded-full text-xs flex gap-4'>
+        <div className='w-fit p-2 bg-[#EAEEEF] rounded-full text-xs flex flex-col items-center gap-4 sm:flex-row'>
           <button
             onClick={decreaseItem}
             className='bg-white font-bold h-5 w-5 rounded-full shadow-md flex items-center justify-center text-lg'
