@@ -23,7 +23,9 @@ const SingleProductCard = ({
         <p className='text-2xl font-bold mb-2 lg:text-[1.7rem]'>
           ${price[0].USD[0]}
         </p>
-        {/* <p className='text-[13px] line-through  mt-1'>${prevPrice}</p> */}
+        <p className='text-[13px] line-through  mt-1'>
+          ${price[0].USD[0] - 100}
+        </p>
       </div>
       <Link
         href={`/${url_slug}`}

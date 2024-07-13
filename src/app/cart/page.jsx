@@ -9,7 +9,7 @@ import { useAppContext } from '../context';
 import { products } from '@/components/productsData';
 
 const CartPage = () => {
-  const { cartData, cartTotal } = useAppContext();
+  const { productss, cartData, cartTotal } = useAppContext();
   const similarProductsData = products.filter(
     (prod) => prod.category === 'similar products'
   );
@@ -59,7 +59,7 @@ const CartPage = () => {
             </div>
             <div className='flex justify-between mt-5'>
               <h2 className='font-bold sm:text-lg'>Total</h2>
-              <p>${cartTotal}</p>
+              <p>${cartTotal}.00</p>
             </div>
             <Link
               href='checkout'
@@ -77,7 +77,7 @@ const CartPage = () => {
         </h1>
         <section className='overflow-x-scroll no-scrollbar h-fit'>
           <div className='flex gap-5 w-[160vw] py-2'>
-            {similarProductsData.map((prod, i) => {
+            {productss.slice(1, 7).map((prod, i) => {
               return <TrendingProduct key={i} {...prod} />;
             })}
           </div>
