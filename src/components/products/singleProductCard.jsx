@@ -11,7 +11,7 @@ const SingleProductCard = ({
     <article className='text-gray-prim'>
       <aside className='w-full'>
         <Image
-          src={`https://api.timbu.cloud/images/${photos[0].url}`}
+          src={`https://api.timbu.cloud/images/${photos[0]?.url}`}
           alt='product image'
           width={1000}
           height={1000}
