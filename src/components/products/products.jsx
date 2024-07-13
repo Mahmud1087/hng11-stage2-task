@@ -1,20 +1,17 @@
 'use client';
 
 import Container from '../container';
-import { products } from '../productsData';
 import SingleProductCard from './singleProductCard';
 import FilterBox from './filterBox';
 import categoryIcon from '../../../public/category-icon.png';
 import { useAppContext } from '@/app/context';
 import Image from 'next/image';
+import { useState } from 'react';
 
 const Products = () => {
-  const { isFilterOpen, setIsFilterOpen, productss } = useAppContext();
-  console.log(productss);
-
-  const generalProducts = products.filter(
-    (prod) => prod.category === 'general products'
-  );
+  const { isFilterOpen, setIsFilterOpen, productss, fetchProducts } =
+    useAppContext();
+  const [btnActive, setBtnActive] = useState(1);
 
   return (
     <>
@@ -52,8 +49,27 @@ const Products = () => {
 
         <section className='w-full sm:w-full lg:w-3/4'>
           <article className='mt-8 grid gap-5 sm:grid-cols-2 sm:gap-5 sm:gap-y-14 lg:grid-cols-3'>
-            {generalProducts.map((product) => {
+            {[...productss].reverse().map((product, i) => {
               return <SingleProductCard key={product.id} {...product} />;
+            })}
+          </article>
+
+          <article className='w-full flex justify-end mt-12 '>
+            {[1, 2, 3].map((item, i) => {
+              return (
+                <button
+                  onClick={() => {
+                    setBtnActive(item);
+                    fetchProducts(item);
+                  }}
+                  key={i}
+                  className={`${
+                    btnActive === i + 1 && 'bg-[#BF5428] text-white '
+                  } pt-1 px-3 rounded-md text-lg font-bold`}
+                >
+                  {item}
+                </button>
+              );
             })}
           </article>
         </section>

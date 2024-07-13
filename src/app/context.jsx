@@ -14,10 +14,10 @@ export default function AppProvider({ children }) {
   const [productss, setProducts] = useState([]);
   const [isLoading, setLoading] = useState(false);
 
-  const fetchProducts = async () => {
+  const fetchProducts = async (page) => {
     setLoading(true);
     try {
-      const response = await fetch('/api/products');
+      const response = await fetch(`/api/products/product-page-${page}`);
       const data = await response.json();
       setProducts(data.items);
       setLoading(false);
@@ -28,7 +28,7 @@ export default function AppProvider({ children }) {
   };
 
   useEffect(() => {
-    fetchProducts();
+    fetchProducts(3);
   }, []);
 
   const cartTotal = cartData.reduce((total, item) => {
@@ -50,6 +50,7 @@ export default function AppProvider({ children }) {
         setCartData,
         setProducts,
         setLoading,
+        fetchProducts,
       }}
     >
       {children}
