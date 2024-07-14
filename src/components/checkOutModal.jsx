@@ -84,8 +84,8 @@ const CheckOutModal = ({
         <Link
           href='/order-completed'
           className={`${
-            cartData.length === 0 && 'hidden'
-          } w-fit mx-auto mt-8 block px-12 py-2 text-sm text-white bg-green-sec rounded-md transition-all font-semibold hover:bg-[#234149] border-2 border-green-sec`}
+            cartData.length === 0 ? 'hidden' : 'block'
+          } w-fit mx-auto mt-8 px-12 py-2 text-sm text-white bg-green-sec rounded-md transition-all font-semibold hover:bg-[#234149] border-2 border-green-sec`}
           onClick={() => {
             setCartData([]);
             closeModal();
