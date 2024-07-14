@@ -11,11 +11,13 @@ import {
 } from './main';
 
 const Footer = () => {
-  const { isFilterOpen } = useAppContext();
+  const { isFilterOpen, isModalOpen } = useAppContext();
 
   return (
     <footer
-      className={`pt-20 bg-[#fdfdfd] ${isFilterOpen && 'fixed sm:relative'}`}
+      className={`pt-20 bg-[#fdfdfd] ${isModalOpen && 'hidden'} ${
+        isFilterOpen && 'fixed sm:relative'
+      }`}
     >
       <Container className='flex flex-col gap-6 sm:gap-16 lg:flex-row lg:justify-between'>
         <CompanyInfo />

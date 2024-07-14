@@ -8,26 +8,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useAppContext } from '../context';
 
 const ProductDetail = ({ params }) => {
-  const { productss, setCartData } = useAppContext();
+  const { productss, addItem } = useAppContext();
   const productID = params.productId;
 
   const product = productss.find((prod) => prod.url_slug === productID);
-
-  const addToCart = () => {
-    setCartData((prevState) => {
-      if (prevState.includes(product)) {
-        return prevState;
-      }
-      return [...prevState, product];
-    });
-  };
-
-  const addItemNotification = () => {
-    toast.success('Item Added', {
-      position: 'top-center',
-      autoClose: 2000,
-    });
-  };
 
   return (
     <div className='w-[90%] lg:w-4/6 mx-auto my-12'>
@@ -71,8 +55,7 @@ const ProductDetail = ({ params }) => {
 
           <button
             onClick={() => {
-              addToCart();
-              addItemNotification();
+              addItem(product);
             }}
             className='mt-12 px-10 py-2 border-2 border-green-sec rounded-md text-green-sec font-semibold hover:bg-green-sec hover:text-white transition-all'
           >

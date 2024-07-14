@@ -6,13 +6,10 @@ import TrendingProduct from '@/components/trendingProduct';
 
 import Link from 'next/link';
 import { useAppContext } from '../context';
-import { products } from '@/components/productsData';
 
 const CartPage = () => {
-  const { productss, cartData, cartTotal } = useAppContext();
-  const similarProductsData = products.filter(
-    (prod) => prod.category === 'similar products'
-  );
+  const { productss, cartData, cartTotal, setCartData } = useAppContext();
+
   return (
     <Container className='my-16'>
       <section className='flex flex-col gap-16 lg:flex-row'>
@@ -41,6 +38,14 @@ const CartPage = () => {
                 Shop now
               </Link>
             </div>
+          )}
+          {cartData.length !== 0 && (
+            <button
+              className='w-32 h-11 flex items-center justify-center rounded-md bg-red-500 text-white border-2 border-red-500 mt-4 transition-all hover:bg-transparent hover:text-red-500 hover:text-semibold'
+              onClick={() => setCartData([])}
+            >
+              clear cart
+            </button>
           )}
         </aside>
 
