@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const OrderCompletedPage = () => {
   return (
-    <div className='w-full flex flex-col items-center justify-center text-gray-prim mt-20'>
+    <div className='w-full flex flex-col items-center justify-center text-gray-prim my-20'>
       <h1 className='text-2xl'>
         Order Completed✅, thank you for shopping with us🥳
       </h1>

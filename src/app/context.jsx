@@ -41,7 +41,7 @@ export default function AppProvider({ children }) {
   };
 
   useEffect(() => {
-    fetchProducts(3);
+    fetchProducts(1);
   }, []);
 
   const addItem = (product) => {

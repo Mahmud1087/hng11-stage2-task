@@ -13,7 +13,7 @@ export default function BackButton() {
       className='text-[#BF5428] flex gap-2 items-center font-semibold mb-10'
     >
       <ArrowLeft size={16} />
-      <p>Back to product</p>
+      <p>Back to products</p>
     </button>
   );
 }

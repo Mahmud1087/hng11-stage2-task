@@ -68,7 +68,9 @@ const CartItem = ({
         </div>
         <p className='text-lg text-gray-prim w-full sm:w-1/2'>{name}</p>
       </section>
-      <p className='w-1/5 text-lg sm:w-[15%]'>${current_price[0].USD[0]}</p>
+      <p className='w-1/5 text-lg sm:w-[15%]'>
+        ${current_price[0].USD[0] * amount}
+      </p>
       <section className='w-1/5 sm:w-1/4'>
         <div className='w-fit p-2 bg-[#EAEEEF] rounded-full text-xs flex flex-col items-center gap-4 sm:flex-row'>
           <button
@@ -87,7 +89,9 @@ const CartItem = ({
         </div>
       </section>
       <section className='sm:w-1/5 flex sm:gap-16'>
-        <p className='hidden text-lg sm:block'>${current_price[0].USD[0]}.00</p>
+        <p className='hidden text-lg sm:block'>
+          ${current_price[0].USD[0] * amount}
+        </p>
         <button
           onClick={() => {
             delCartItem();
